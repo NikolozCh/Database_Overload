@@ -29,7 +29,7 @@ user_agents = [
 #          "Sandro", "Mari", "Ana", "Elene", "Lile", "Nino", "Anastasia", "Barbare",
 #          "Salome", "Lizi", "Nia", "Nita", "Sesili", "Lika", "Anamaria", "Gvanca", "Vache",
 #          "Dato", "Irakli", "Natia", "Davit", "Aleksandra", "Nikoloz", "Ilia", "Lana",
-#          "Nuca", "Natali", "Masho", "Misho", "Mikheil"]
+#          "Nuca", "Natali", "Masho", "Misho", "Mikheil", "Rezi", "Revaz"]
 #
 # surnames = ["Abzianidze", "Abakeli", "Abashidze", "Abulashvili", "Agladze", "Antauri",
 #             "Balanchivadze", "Gagua", "Gomarteli", "Gomareli", "Gomiashvili", "Gongadze", "Gonashvili",
@@ -38,14 +38,15 @@ user_agents = [
 
 
 while (True):
-    mastercard_prefix = "5280"
+    card_prefixes = ["51", "52", "53", "54", "55", "41", "42", "43", "45", "48", "44", "46", "47", "49"]
+    card_prefix = choice(card_prefixes) + str(randint(10,99))
     last_eight_number = random_with_N_digits(12)
-    full_number = mastercard_prefix + str(last_eight_number)
+    full_number = card_prefix + str(last_eight_number)
     month = "0" + str(randint(1,9))
     end_year = str(randint(19,27))
     cvc_code = str(randint(101,999))
     # ესეც იქნებ მოუნდეს ვინმეს ;დ
-    # card_name = choice(names) + " " + choice(surnames)
+    # card_name = choice(names).upper() + " " + choice(surnames).upper()
     usr_agent_header = {
         "User-Agent": choice(user_agents)
     }
