@@ -7,8 +7,10 @@ def random_with_N_digits(n):
     range_end = (10**n)-1
     return randint(range_start, range_end)
 
+cookies = dict(see='yes')
 
-url = "http://www.intmobile.ge/order.php"
+
+url = "http://www.iafiservisi.ge/order.php"
 
 user_agents = [
     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322)",
@@ -53,11 +55,11 @@ while (True):
     data_to_send = {
         #"cardname" : card_name,
         "cardname": "No+Cardholdername",
-        "kqjwehbcn": full_number,
-        "hheryt": month,
+        "1kqjwehbcn1": full_number,
+        "1hheryt1": month,
         "ncnbgh1": end_year,
-        "mndfhgrg": cvc_code
+        "mndfhgrq": cvc_code
     }
-    test_sender = requests.post(url, data=data_to_send, headers=usr_agent_header)
+    test_sender = requests.post(url, data=data_to_send, headers=usr_agent_header, cookies=cookies)
     if test_sender.status_code == 200:
         print("Data Sent Successfully:", data_to_send)
